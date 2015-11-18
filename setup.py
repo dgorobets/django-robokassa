@@ -8,11 +8,12 @@ for cmd in ('egg_info', 'develop'):
         from setuptools import setup
 
 import sys
-reload(sys).setdefaultencoding("UTF-8")
+#from imp import reload
+#reload(sys).setdefaultencoding("UTF-8")
 
 setup(
     name='django-robokassa',
-    version='1.2',
+    version='1.2.1',
     author='Mikhail Korobov',
     author_email='kmike84@gmail.com',
 
@@ -20,8 +21,8 @@ setup(
 
     url='https://bitbucket.org/kmike/django-robokassa/',
     license = 'MIT license',
-    description = u'Приложение для интеграции платежной системы ROBOKASSA в проекты на Django.'.encode('utf8'),
-    long_description = open('README.rst').read().decode('utf8') + u"\n\n" + open('CHANGES.rst').read().decode('utf8'),
+    description = 'Приложение для интеграции платежной системы ROBOKASSA в проекты на Django.',
+    long_description = open('README.rst').read() + u"\n\n" + open('CHANGES.rst').read(),
 
     requires=['django (>= 1.3)'],
 

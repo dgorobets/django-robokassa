@@ -13,3 +13,5 @@ class SuccessNotification(models.Model):
 
     def __unicode__(self):
         return u'#%d: %s (%s)' % (self.InvId, self.OutSum, self.created_at)
+    def __str__(self):
+        return u'#%d: %s (%s)' % (self.InvId, self.OutSum, self.created_at)
