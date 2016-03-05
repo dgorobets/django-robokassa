@@ -13,7 +13,7 @@ import sys
 
 setup(
     name='django-robokassa',
-    version='1.2.1.1',
+    version='1.2.1.2',
     author='Mikhail Korobov',
     author_email='kmike84@gmail.com',
 

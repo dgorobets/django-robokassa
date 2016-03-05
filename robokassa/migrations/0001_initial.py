@@ -1,34 +1,26 @@
 # -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'SuccessNotification'
-        db.create_table('robokassa_successnotification', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('InvId', self.gf('django.db.models.fields.IntegerField')(db_index=True)),
-            ('OutSum', self.gf('django.db.models.fields.CharField')(max_length=15)),
-            ('created_at', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
-        ))
-        db.send_create_signal('robokassa', ['SuccessNotification'])
+    dependencies = [
+    ]
 
-    def backwards(self, orm):
-        # Deleting model 'SuccessNotification'
-        db.delete_table('robokassa_successnotification')
-
-    models = {
-        'robokassa.successnotification': {
-            'InvId': ('django.db.models.fields.IntegerField', [], {'db_index': 'True'}),
-            'Meta': {'object_name': 'SuccessNotification'},
-            'OutSum': ('django.db.models.fields.CharField', [], {'max_length': '15'}),
-            'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
-        }
-    }
-
-    complete_apps = ['robokassa']
+    operations = [
+        migrations.CreateModel(
+            name='SuccessNotification',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
+                ('InvId', models.IntegerField(verbose_name='Номер заказа', db_index=True)),
+                ('OutSum', models.CharField(verbose_name='Сумма', max_length=15)),
+                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата и время получения уведомления')),
+            ],
+            options={
+                'verbose_name': 'Уведомление об успешном платеже',
+                'verbose_name_plural': 'Уведомления об успешных платежах (ROBOKASSA)',
+            },
+        ),
+    ]
