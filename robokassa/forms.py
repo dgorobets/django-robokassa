@@ -106,7 +106,7 @@ class RobokassaForm(BaseRobokassaForm):
             value = self.initial[name] if name in self.initial else self.fields[name].initial
             if value is None:
                 return ''
-            return value #unicode(value)
+            return str(value) #unicode(value)
         standard_part = ':'.join([_val('MrchLogin'), _val('OutSum'), _val('InvId'), PASSWORD1])
         return self._append_extra_part(standard_part, _val)
 
@@ -129,7 +129,7 @@ class ResultURLForm(BaseRobokassaForm):
         return self.cleaned_data
 
     def _get_signature_string(self):
-        _val = lambda name: self.cleaned_data[name] # unicode(self.cleaned_data[name])
+        _val = lambda name: str(self.cleaned_data[name]) # unicode(self.cleaned_data[name])
         standard_part = ':'.join([_val('OutSum'), _val('InvId'), PASSWORD2])
         return self._append_extra_part(standard_part, _val)
 
@@ -140,7 +140,7 @@ class _RedirectPageForm(ResultURLForm):
     Culture = forms.CharField(max_length=10)
 
     def _get_signature_string(self):
-        _val = lambda name: self.cleaned_data[name] # unicode(self.cleaned_data[name])
+        _val = lambda name: str(self.cleaned_data[name]) # unicode(self.cleaned_data[name])
         standard_part = ':'.join([_val('OutSum'), _val('InvId'), PASSWORD1])
         return self._append_extra_part(standard_part, _val)
 

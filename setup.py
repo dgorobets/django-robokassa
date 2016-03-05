@@ -13,7 +13,7 @@ import sys
 
 setup(
     name='django-robokassa',
-    version='1.2.1',
+    version='1.2.1.1',
     author='Mikhail Korobov',
     author_email='kmike84@gmail.com',
 
@@ -22,7 +22,7 @@ setup(
     url='https://bitbucket.org/kmike/django-robokassa/',
     license = 'MIT license',
     description = 'Приложение для интеграции платежной системы ROBOKASSA в проекты на Django.',
-    long_description = open('README.rst').read() + u"\n\n" + open('CHANGES.rst').read(),
+    long_description = 'Ok', #open('README.rst').read() + u"\n\n" + open('CHANGES.rst').read(),
 
     requires=['django (>= 1.3)'],
 
