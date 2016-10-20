@@ -3,22 +3,25 @@ try:
     from django.conf.urls.defaults import patterns, url
 except ImportError:
     from django.conf.urls import patterns, url
+
+from robokassa import views
     
 
-urlpatterns = patterns('robokassa.views',
+urlpatterns = [
     url(
           r'^result/$',
-          'receive_result',
+          views.receive_result,
           name='robokassa_result'
     ),
     url(
           r'^success/$',
-          'success',
+          views.success,
           name='robokassa_success'
     ),
     url(
           r'^fail/$',
-          'fail',
+          views.fail,
           name='robokassa_fail'
     ),
-)
+]
+
